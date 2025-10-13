@@ -1,22 +1,22 @@
 "use client";
 
+import { LogOut } from 'lucide-react';
 import { useRouter } from 'next/navigation';
+import { AvatarImage } from '@radix-ui/react-avatar';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from './ui/dropdown-menu';
 import { Button } from './ui/button';
 import { Avatar, AvatarFallback } from './ui/avatar';
-import { AvatarImage } from '@radix-ui/react-avatar';
-import { LogOut } from 'lucide-react';
 import NavItems from './nav-Items';
+import { signOut } from '@/lib/actions/auth.actions';
 
-const UserDropdown = () => {
+const UserDropdown = ({ user }: { user: User }) => {
   const router = useRouter();
 
   const handleSignOut = async () => {
+    await signOut();
     router.push("sign-in");
   };
 
-  const user = { name: "Renato", email: "renato@demo.com" };
- 
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
