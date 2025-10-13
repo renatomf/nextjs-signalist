@@ -1,21 +1,21 @@
 "use client";
 
-import { CountrySelectField } from "@/components/forms/cowntry-select-field";
+import { toast } from "sonner";
+import { useForm } from "react-hook-form";
+import { useRouter } from "next/navigation";
 import FooterLink from "@/components/forms/footer-link";
 import InputField from "@/components/forms/input-field";
-import SelectField from "@/components/forms/select-field";
 import { Button } from "@/components/ui/button";
-import { INVESTMENT_GOALS, PREFERRED_INDUSTRIES, RISK_TOLERANCE_OPTIONS } from "@/lib/constants";
-import { SubmitHandler, useForm } from "react-hook-form";
+import { signInWithEmail } from "@/lib/actions/auth.actions";
 
 const SignIn = () => {
+  const router = useRouter();
+
   const {
     register,
     handleSubmit,
-    watch,
-    control,
     formState: { errors, isSubmitting },
-  } = useForm<SignUpFormData>({
+  } = useForm<SignInFormData>({
     defaultValues: {
       email: "",
       password: "",
@@ -23,13 +23,17 @@ const SignIn = () => {
     mode: "onBlur",
   });
 
-  const onSubmit = async (data: SignUpFormData) => {
+  const onSubmit = async (data: SignInFormData) => {
     try {
-      console.log(data);
-    } catch (error) {
-      console.error(error);
+      const result = await signInWithEmail(data);
+      if(result.success) router.push('/');
+    } catch (e) {
+      console.error(e);
+      toast.error('Sign in failed', {
+          description: e instanceof Error ? e.message : 'Failed to sign in.'
+      });
     }
-  }
+  };
 
   return (
     <>
@@ -47,7 +51,8 @@ const SignIn = () => {
         <InputField 
           name="password"
           label="Password"
-          placeholder="Enter a strong password"
+          type="password"
+          placeholder="Enter your password"
           register={register}
           error={errors.password}
           validation={{ required: "Password is required", minLength: 8 }}
