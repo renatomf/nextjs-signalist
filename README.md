@@ -20,12 +20,6 @@
 
 **Signalist** é uma aplicação full-stack construída com **Next.js 15 (App Router)** que permite acompanhar preços de ações em tempo real, criar **alertas personalizados** e explorar **insights detalhados de empresas**. O projeto combina dados de mercado, autenticação de usuários, workflows orientados a eventos e notificações por e-mail em uma única plataforma.
 
-> 💡 Este README foi elaborado com base no `package.json`, na estrutura de pastas públicas do repositório e no projeto de referência em que o Signalist é baseado ([`adrianhajdin/signalist_stock-tracker-app`](https://github.com/adrianhajdin/signalist_stock-tracker-app)). Ajuste os detalhes finos conforme a implementação real do seu fork.
-
-**🔗 Demo:** [nextjs-stock-three.vercel.app](https://nextjs-stock-three.vercel.app)
-
----
-
 ## ✨ Funcionalidades
 
 | Funcionalidade | Descrição |
