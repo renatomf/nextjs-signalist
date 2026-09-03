@@ -133,63 +133,6 @@ nextjs-stock/
 
 ---
 
-## 🔑 Variáveis de ambiente
-
-Crie um arquivo `.env` (ou `.env.local`) na raiz do projeto:
-
-```bash
-NODE_ENV=development
-NEXT_PUBLIC_BASE_URL=http://localhost:3000
-
-# MongoDB
-MONGODB_URI=
-
-# Better Auth
-BETTER_AUTH_SECRET=
-BETTER_AUTH_URL=http://localhost:3000
-
-# Provedor de dados de mercado
-NEXT_PUBLIC_FINNHUB_API_KEY=
-FINNHUB_BASE_URL=https://finnhub.io/api/v1
-
-# E-mail (Nodemailer)
-NODEMAILER_EMAIL=
-NODEMAILER_PASSWORD=
-
-# Inngest
-INNGEST_EVENT_KEY=
-INNGEST_SIGNING_KEY=
-```
-
-> Nomes exatos das variáveis podem variar — confirme em `lib/` e `database/` do repositório.
-
----
-
-## 🚀 Instalação e execução local
-
-```bash
-# 1. Clone o repositório
-git clone https://github.com/renatomf/nextjs-stock.git
-cd nextjs-stock
-
-# 2. Instale as dependências
-npm install
-
-# 3. Configure o .env (veja seção acima)
-
-# 4. Teste a conexão com o banco (opcional)
-npm run test:db
-
-# 5. Rode o servidor de desenvolvimento
-npm run dev
-
-# 6. Em outro terminal, rode o Inngest Dev Server (para os workflows)
-npx inngest-cli dev
-```
-
-Abra [http://localhost:3000](http://localhost:3000) no navegador.
-
----
 
 ## 📜 Scripts disponíveis
 
@@ -203,19 +146,6 @@ Abra [http://localhost:3000](http://localhost:3000) no navegador.
 
 ---
 
-## ☁️ Deploy
-
-O projeto está publicado na **Vercel**: [nextjs-stock-three.vercel.app](https://nextjs-stock-three.vercel.app)
-
-Para publicar seu próprio fork:
-
-1. Importe o repositório na [Vercel](https://vercel.com/new).
-2. Configure todas as variáveis de ambiente listadas acima no painel do projeto.
-3. Garanta que o MongoDB (Atlas) aceite conexões externas.
-4. Configure o Inngest para apontar para o endpoint de produção (`/api/inngest`).
-
----
-
 ## 🗺️ Roadmap
 
 - [ ] Documentar os schemas do MongoDB (`database/`)
@@ -224,17 +154,6 @@ Para publicar seu próprio fork:
 - [ ] Adicionar testes automatizados
 - [ ] Definir licença do projeto
 
----
-
-## 🤝 Contribuindo
-
-1. Faça um fork do projeto
-2. Crie uma branch para sua feature (`git checkout -b feature/nome-da-feature`)
-3. Commit suas mudanças (`git commit -m 'feat: minha nova feature'`)
-4. Push para a branch (`git push origin feature/nome-da-feature`)
-5. Abra um Pull Request
-
----
 
 <div align="center">
 
